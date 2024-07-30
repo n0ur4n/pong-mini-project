@@ -34,18 +34,20 @@ def ball():
 
 def paddle_a_up():
     y = paddle_a.ycorr()
-    y += 20
+    y += 30
     paddle_a.sety(y)
 
 def paddle_a_down():
     y =paddle_a.ycore()
-    y -= 20
+    y -= 30
+    paddle_a.sety(y)   
 
 paddle_a()
 paddle_b()
 ball()
 wn.listen()
 wn.onkeypress(paddle_a_up,  "w")
-wn.onkeypress(paddle_a_down,  "w")
+wn.onkeypress(paddle_a_down,  "s")
+
 while True:
     wn.update()
