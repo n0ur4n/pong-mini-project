@@ -4,7 +4,7 @@ wn=turtle.Screen()
 wn.title("pong game")
 wn.bgcolor("white")
 wn.tracer(0)
-
+wn.setup(width=800,height=600)
 
 def paddle_a():
     paddle_a=turtle.Turtle()
@@ -62,5 +62,7 @@ paddle_a()
 paddle_b()
 ball()
 
+
 while True:
     wn.update()
+    # ball.setx(ball.xcor()+ballxdirection())
