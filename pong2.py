@@ -56,3 +56,6 @@ wn.onkeypress(paddle_A_up, "w")
 wn.onkeypress(paddle_A_down, "s")
 wn.onkeypress(paddle_B_up, "Up")
 wn.onkeypress(paddle_B_down, "Down")
+
+while True:
+    wn.update()
