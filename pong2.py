@@ -30,6 +30,8 @@ ball.shape("circle")
 ball.color("green")
 ball.penup()
 ball.goto(0, 0)
+ball.dx=0.5
+ball.dy=-0.5
 
 def paddle_A_up():
     y=paddle_A.ycor()
@@ -59,3 +61,31 @@ wn.onkeypress(paddle_B_down, "Down")
 
 while True:
     wn.update()
+    # ball movement
+    ball.setx(ball.xcor()+ball.dx)
+    ball.sety(ball.ycor()+ball.dy)
+    # boarder
+    if ball.ycor()>290:
+        ball.sety(290)
+        ball.dy*=-1
+
+    if ball.ycor()<-290:
+        ball.sety(-290)
+        ball.dy*=-1
+
+    if ball.xcor()>390:
+        ball.goto(0,0)
+        ball.dx*=-1
+
+    if ball.xcor()<-390:
+        ball.goto(0,0)
+        ball.dx*=-1
+
+        # paddle collision
+    if ball.xcor()>340 and ball.xcor() <350 and ball.ycor()<paddle_B.ycor()+400 and ball.ycor()>paddle_B.ycor()-40:
+        ball.setx(340)
+        ball.dx*=-1
+
+    if ball.xcor()<-340 and ball.xcor() >-350 and ball.ycor()<paddle_A.ycor()+400 and ball.ycor()>paddle_A.ycor()-40:
+        ball.setx(-340)
+        ball.dx*=-1
